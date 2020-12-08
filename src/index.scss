@@ -42,6 +42,12 @@ button {
   outline: none;
 }
 
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
 .icon {
   width: 1em;
   height: 1em;
