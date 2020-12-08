@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
-import Icon from './icon';
-
+import Icon from './Icon';
 
 
 const NavWrapper = styled.nav`
@@ -32,7 +31,7 @@ const Nav = () => {
             <ul>
                 <li>
                     <Icon name='tag'/>
-                    <Link to="tags">标签页</Link>
+                    <Link to="tags"> 标签页</Link>
                 </li>
                 <li>
                     <Icon name={'money'}/>
