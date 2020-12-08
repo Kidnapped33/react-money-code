@@ -5,12 +5,14 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
-import Layout from './components/Layout';
+import Tags from './view/Tags';
+import Money from './view/Money';
+import Statistics from './view/Statistics';
+import NoMatch from './view/NoMatch';
 
 function App() {
     return (
         <Router>
-
             <Switch>
                 <Route path="/tags">
                     <Tags/>
@@ -27,38 +29,6 @@ function App() {
                 </Route>
             </Switch>
         </Router>
-    );
-}
-
-function NoMatch() {
-    return (
-        <Layout>
-            <h2>404页面</h2>
-        </Layout>
-    );
-}
-
-function Statistics() {
-    return (
-        <Layout>
-            <h2>统计页</h2>
-        </Layout>
-    );
-}
-
-function Tags() {
-    return (
-        <Layout>
-            <h2>标签页</h2>
-        </Layout>
-    );
-}
-
-function Money() {
-    return (
-        <Layout>
-            <h2>记账页</h2>
-        </Layout>
     );
 }
 
