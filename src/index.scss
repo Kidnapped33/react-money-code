@@ -18,7 +18,7 @@
   box-sizing: border-box;
 }
 
-ul, ol {
+ul, ol, li {
   list-style: none
 }
 
@@ -31,6 +31,11 @@ body {
   font-family: $font-hei;
   font-size: 16px;
   line-height: 1.2;
+  background-color: rgb(245, 245, 245);
+}
+
+button {
+  font-family: inherit;
 }
 
 .icon {
