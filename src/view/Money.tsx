@@ -2,7 +2,16 @@ import Layout from '../components/Layout';
 import React from 'react';
 import styled from 'styled-components';
 
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`;
 const TagsSection = styled.section`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   background: #FFFFFF;
   padding: 12px 16px;
     > ol{ padding: 0 -12px;
@@ -23,7 +32,6 @@ const TagsSection = styled.section`
       margin: 8px;
       }
 `;
-
 const NotesSection = styled.section`
 padding: 0px 16px;
 font-size: 14px;
@@ -116,7 +124,7 @@ const NumberPadSection = styled.section`
 
 function Money() {
     return (
-        <Layout>
+        <MyLayout>
             <TagsSection>
                 <ol>
                     <li>衣</li>
@@ -157,7 +165,7 @@ function Money() {
                     <button>.</button>
                 </div>
             </NumberPadSection>
-        </Layout>
+        </MyLayout>
     );
 }
 
