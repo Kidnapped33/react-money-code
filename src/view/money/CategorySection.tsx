@@ -14,11 +14,11 @@ const CategorySection = styled.section`
            content: '';
            display: block;
            height: 3px;
+           width: 100%;
            background-color: #333;
            position: absolute;
            left: 0;
            bottom: 0;
-           width: 100%;
             }
       }
     }
