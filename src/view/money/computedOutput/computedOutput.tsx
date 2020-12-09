@@ -15,23 +15,21 @@ const computedOutput = (text: string, output = '0') => {
             } else {
                 return output + text;
             }
-
-        case'.':
+        case '.':
             if (output.indexOf('.') >= 0) {return output;}
             return output + '.';
-
-        case'删除':
+        case '删除':
             if (output.length === 1) {
-                return '0';
+                return '';
             } else {
                 return output.slice(0, -1) || '';
             }
-
-        case'清空':
-            return '0';
+        case '清空':
+            return '';
         default:
-            return ' ';
+            return '';
     }
 };
+
 
 export {computedOutput};

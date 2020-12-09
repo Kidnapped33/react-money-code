@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React from 'react';
 
 const Wrapper = styled.section`
   font-size: 24px;
@@ -24,18 +24,22 @@ const Wrapper = styled.section`
       }
     }
 `;
-
-const CategorySection: React.FC = () => {
-    const [category, setCategory] = useState('-');
+type Props = {
+    value: '-' | '+';
+    onChange: (value: '-' | '+') => void;
+}
+const CategorySection: React.FC<Props> = (props) => {
+    //const [category, setCategory] = useState('-');
+    const category = props.value;
     return (
         <Wrapper>
             <ul>
                 <li className={category === '-' ? 'selected' : ''}
-                    onClick={() => {setCategory('-');}}
+                    onClick={() => {props.onChange('-');}}
                 >支出
                 </li>
                 <li className={category === '+' ? 'selected' : ''}
-                    onClick={() => {setCategory('+');}}
+                    onClick={() => {props.onChange('+');}}
                 >收入
                 </li>
             </ul>
