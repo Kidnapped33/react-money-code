@@ -45,7 +45,7 @@ const TagsSection: React.FC = (props) => {
         if (selectedTag.indexOf(tag) >= 0) {
             setSelectedTag(selectedTag.filter(t => t !== tag));
         } else {
-            setSelectedTag([...selectedTag, tag]);
+            setSelectedTag([tag]);
         }
     };
     const getClass = (tag: string) => selectedTag.indexOf(tag) >= 0 ? 'selected' : '';
