@@ -21,7 +21,7 @@ function Money() {
     type Category = '-' | '+';
     //4个组件通信
     const [selected, setSelected] = useState({
-        tags: [] as string[],
+        tagIds: [] as number[],
         notes: '',
         category: '-' as Category,
         amount: 0
@@ -35,8 +35,8 @@ function Money() {
 
     return (
         <MyLayout>
-            <TagsSection value={selected.tags}
-                         onChange={tags => onChange({tags})}/>
+            <TagsSection value={selected.tagIds}
+                         onChange={tagIds => onChange({tagIds})}/>
             <NoteSection value={selected.notes}
                          onChange={notes => onChange({notes})}/>
             <CategoryWrapper>
