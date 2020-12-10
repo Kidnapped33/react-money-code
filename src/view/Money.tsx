@@ -9,6 +9,12 @@ import {NumberPadSection} from './money/NumberPadSection';
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
+  > .category{
+  background-color: #c4c4c4;
+  }
+`;
+const CategoryWrapper = styled.div`
+ background-color: #c4c4c4;
 `;
 
 function Money() {
@@ -33,8 +39,10 @@ function Money() {
                          onChange={tags => onChange({tags})}/>
             <NoteSection value={selected.notes}
                          onChange={notes => onChange({notes})}/>
-            <CategorySection value={selected.category}
-                             onChange={category => onChange({category})}/>
+            <CategoryWrapper>
+                <CategorySection value={selected.category}
+                                 onChange={category => onChange({category})}/>
+            </CategoryWrapper>
             < NumberPadSection value={selected.amount}
                                onChange={amount => onChange({amount})}
                                onOk={() => {}}
