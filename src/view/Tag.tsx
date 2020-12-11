@@ -5,6 +5,8 @@ import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import {Button} from '../components/Button';
 import styled from 'styled-components';
+import {Input} from '../components/Input';
+import {Center} from '../components/Center';
 
 
 const TopBar = styled.header`
@@ -16,28 +18,10 @@ padding: 14px;
 background-color: white;
 margin: 0 0 5px 0;
 `;
-const Wrapper = styled.section`
+const InputWrapper = styled.div`
+background-color: white;
 padding: 0 16px;
 font-size: 14px;
-  > label {
-    background: white;
-    display: flex;
-    align-items: center;
-    > span {margin-right: 16px; white-space: nowrap;}
-     > input {
-        background: none;
-        border: none;
-        display: block;
-        width: 100%;
-        height: 36px;
-      }
-  }
-`;
-const Center = styled.div`
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;
 const Space = styled.div`
   height: 16px;
@@ -55,12 +39,9 @@ const Tag: React.FC = () => {
                 <span>编辑标签</span>
                 <Icon/>
             </TopBar>
-            <Wrapper>
-                <label>
-                    <span>标签名 {tag.name}</span>
-                    <input type="text"/>
-                </label>
-            </Wrapper>
+            <InputWrapper>
+                <Input label={'标签名'} type={'text'}/>
+            </InputWrapper>
             <Center>
                 <Space/>
                 <Space/>

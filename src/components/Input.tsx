@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
-    background: #f5f5f5;
     display: flex;
     align-items: center;
     > span {margin-right: 16px; white-space: nowrap;}
@@ -11,7 +10,7 @@ const Label = styled.label`
         border: none;
         display: block;
         width: 100%;
-        height: 72px;
+        height: 44px;
       }
 `;
 type Props = {

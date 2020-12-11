@@ -3,9 +3,9 @@ import React, {ChangeEventHandler, useRef} from 'react';
 import {Input} from '../../components/Input';
 
 const Wrapper = styled.section`
-padding: 0 16px;
+background-color: #f5f5f5;
+padding: 14px 16px;
 font-size: 14px;
- 
 `;
 
 type Props = {
