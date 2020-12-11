@@ -1,4 +1,5 @@
 import React from 'react';
+import cs from 'classnames';
 
 require('icons/money.svg');
 require('icons/tag.svg');
@@ -10,11 +11,13 @@ require('icons/left.svg');
 
 type Props = {
     name?: string
-}
+} & React.SVGAttributes<SVGElement>
 
 const Icon = (props: Props) => {
+    const {name, children, className, ...rest} = props;
     return (
-        <svg className="icon">
+        // ...rest className会覆盖之前的 icon
+        <svg className={cs('icon', className)} {...rest}>
             {props.name && <use xlinkHref={'#' + props.name}/>}
         </svg>
     );
