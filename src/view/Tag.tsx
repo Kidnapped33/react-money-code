@@ -27,7 +27,7 @@ font-size: 14px;
 
 type Params = { id: string }
 const Tag: React.FC = () => {
-    const {findTag, updateTag} = useTags();
+    const {findTag, updateTag, deleteTag} = useTags();
     let {id: idString} = useParams<Params>();
     const tag = findTag(parseInt(idString));
     return (
@@ -37,6 +37,7 @@ const Tag: React.FC = () => {
                 <span>编辑标签</span>
                 <Icon/>
             </TopBar>
+             {tag ? <div>
             <InputWrapper>
                 <Input label={'标签名'} type={'text'} value={tag.name}
                        onChange={(e) => {
@@ -48,8 +49,10 @@ const Tag: React.FC = () => {
                 <Space/>
                 <Space/>
                 <Space/>
-                <Button>删除标签</Button>
+                <Button onClick={() => {deleteTag(tag.id);}}>删除标签</Button>
             </Center>
+        </div> : <div>tag 不存在</div>}
+
         </Layout>
     );
 };
