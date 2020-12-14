@@ -53,10 +53,11 @@ const TagsSection: React.FC<Props> = (props) => {
         return (
             <Wrapper>
                 <ol>
-                    {tags.map(tag => <li key={tag.id}
-                                         onClick={() => {onToggleTag(tag.id);}}
-                                         className={getClass(tag.id)}>{tag.name}
-                    </li>)}
+                    {tags.map(tag =>
+                        <li key={tag.id}
+                            onClick={() => {onToggleTag(tag.id);}}
+                            className={getClass(tag.id)}>{tag.name}
+                        </li>)}
                 </ol>
                 <button onClick={addTag}>新增标签</button>
             </Wrapper>
