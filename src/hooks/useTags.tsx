@@ -1,11 +1,11 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {createId} from '../lib/createId';
 import {useUpdate} from './useUpdate';
+
 
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>(([]));
     useEffect(() => {
-
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
         if (localTags.length === 0) {
             localTags = [
@@ -62,7 +62,12 @@ const useTags = () => {
         }
     };
 
-    return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag};
+    const getName = (id: number) => {
+        const tag = tags.filter(t => t.id === id)[0];
+        return tag ? tag.name : '';
+    };
+
+    return {tags, getName, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag};
 };
 
 

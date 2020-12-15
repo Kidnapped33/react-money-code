@@ -11,16 +11,14 @@ type RecordItem = {
 //新的类型，Omit忽略期中哪个类型
 type newRecordItem = Omit<RecordItem, 'createTime'>
 
-export const useRecords = () => {
+const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([]);
-
-    useEffect(() => {
-        setRecords(JSON.parse(window.localStorage.getItem('records') || ''));
-    }, []);
-
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records));
     }, [records]);
+    useEffect(() => {
+        setRecords(JSON.parse(window.localStorage.getItem('records') || ''));
+    }, []);
 
     const addRecord = (newRecord: newRecordItem) => {
         if (newRecord.tagIds.length === 0) {
@@ -38,3 +36,5 @@ export const useRecords = () => {
 
     return {records, addRecord};
 };
+
+export {useRecords};
