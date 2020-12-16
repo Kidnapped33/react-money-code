@@ -15,7 +15,7 @@ const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([]);
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records));
-    }, [records]);
+    }, records);
     useEffect(() => {
         setRecords(JSON.parse(window.localStorage.getItem('records') || ''));
     }, []);
