@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React, {useState} from 'react';
+import React, {ReactNode, useState} from 'react';
 import {CategorySection} from './money/CategorySection';
 import styled from 'styled-components';
 import {RecordItem, useRecords} from '../hooks/useRecords';
@@ -62,17 +62,24 @@ function Statistics() {
             </CategoryWrapper>
             {array.map(([date, records]) =>
                 <div>
-                    <Header>{date} 合计 {}</Header>
+                    <Header>{date} </Header>
                     <div>
                         {records.map(r => {
-                            return <Item key={r.createTime}>
+                            return <Item>
                                 <div className="tags oneLine">
-                                    {r.tagIds.map(tagId => <span key={tagId}>{getName(tagId)}</span>)}
+                                    {r.tagIds
+                                        .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
+                                        .reduce((result, span, index, array) =>
+                                            result.concat(index < array.length - 1 ? [span, '，'] : [span]), [] as ReactNode[])
+                                    }
+
                                 </div>
                                 {r.notes && <div className="note">
                                     {r.notes}
                                 </div>}
-                                ￥{r.amount}
+                                <div className="amount">
+                                    ￥{r.amount}
+                                </div>
                             </Item>;
                         })}
                     </div>

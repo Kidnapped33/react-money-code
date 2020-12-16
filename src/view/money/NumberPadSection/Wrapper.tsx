@@ -46,6 +46,16 @@ const Wrapper = styled.section`
         }
         
       }
+      
+      @media (max-height: 570px){ //iphone5
+      >button{
+        height: 40px;
+        &.ok{
+          height: 80px;
+        }
+      
+      }
+      }
     }
 `;
 
