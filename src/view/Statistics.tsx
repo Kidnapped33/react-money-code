@@ -35,7 +35,7 @@ function Statistics() {
     const {getName} = useTags();
     const hash: { [K: string]: RecordItem[] } = {};
     const selectedRecords = records.filter(r => r.category === category);
-    selectedRecords.map(r => {
+    selectedRecords.forEach(r => {
         const key = day(r.createTime).format('YYYY-MM-DD');
         const value = r;
         // key 不在 hash 里面，就先创建空数组，然后 push 进去
@@ -63,11 +63,9 @@ function Statistics() {
             {array.map(([date, records]) =>
                 <div>
                     <Header>{date} 合计 {}</Header>
-
                     <div>
                         {records.map(r => {
-                            //key={r.createTime}
-                            return <Item>
+                            return <Item key={r.createTime}>
                                 <div className="tags oneLine">
                                     {r.tagIds.map(tagId => <span key={tagId}>{getName(tagId)}</span>)}
                                 </div>
