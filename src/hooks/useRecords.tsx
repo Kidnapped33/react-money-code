@@ -17,7 +17,7 @@ const useRecords = () => {
         window.localStorage.setItem('records', JSON.stringify(records));
     }, records);
     useEffect(() => {
-        setRecords(JSON.parse(window.localStorage.getItem('records') || ''));
+        setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'));
     }, []);
 
     const addRecord = (newRecord: newRecordItem) => {

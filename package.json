@@ -1,6 +1,7 @@
 {
   "name": "money",
   "version": "0.1.0",
+  "homepage": "https://kidnapped33.github.io/react-money-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",

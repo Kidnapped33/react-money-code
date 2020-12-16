@@ -5,7 +5,7 @@ import {useTags} from '../../hooks/useTags';
 const Wrapper = styled.section`
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   //justify-content: flex-end;
   align-items: flex-start;
   background: #FFFFFF;
@@ -54,6 +54,7 @@ const TagsSection: React.FC<Props> = (props) => {
         const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
         return (
             <Wrapper>
+                <button onClick={addTag}>新增标签</button>
                 <ol>
                     {tags.map(tag =>
                         <li key={tag.id}
@@ -61,7 +62,6 @@ const TagsSection: React.FC<Props> = (props) => {
                             className={getClass(tag.id)}>{tag.name}
                         </li>)}
                 </ol>
-                <button onClick={addTag}>新增标签</button>
             </Wrapper>
         );
     }
